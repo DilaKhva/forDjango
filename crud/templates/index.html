@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Products</title>
+</head>
+<body>
+
+<h1>
+    📦 Produktlar
+    <a href="{% url 'create_product' %}">
+        <button>+</button>
+    </a>
+</h1>
+
+<hr>
+
+<table border="1" cellpadding="8">
+    <tr>
+        <th>#</th>
+        <th>Nomi</th>
+        <th>Amallar</th>
+    </tr>
+
+    {% for product in products %}
+    <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>
+            <a href="{% url 'detail' product.id %}">
+                {{ product.title }}
+            </a>
+        </td>
+        <td>
+            <a href="{% url 'update' product.id %}">✏️ Edit</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>
+

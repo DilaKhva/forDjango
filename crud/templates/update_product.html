@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Product</title>
+</head>
+<body>
+
+<h1>Update Product</h1>
+
+<form method="post">
+    {% csrf_token %}
+
+    <label>Title:</label><br>
+    <input type="text" name="title" value="{{ product.title }}" required><br><br>
+
+    <label>Price:</label><br>
+    <input type="number" step="0.01" name="price" value="{{ product.price }}" required><br><br>
+
+    <label>Created date:</label><br>
+    <input type="date" name="created_date" value="{{ product.created_date|date:'Y-m-d' }}" required><br><br>
+
+    <label>Expire date:</label><br>
+    <input type="date" name="expire_date" value="{{ product.expire_date|date:'Y-m-d' }}"><br><br>
+
+    <label>Description:</label><br>
+    <textarea name="desc">{{ product.desc }}</textarea><br><br>
+
+    <label>Amount:</label><br>
+    <input type="text" name="amount" value="{{ product.amount }}"><br><br>
+
+    <button type="submit">Update</button>
+    <a href="{% url 'index' %}">Cancel</a>
+</form>
+
+</body>
+</html>

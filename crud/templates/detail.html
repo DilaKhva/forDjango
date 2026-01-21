@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ product.title }}</title>
+</head>
+<body>
+
+<h2>{{ product.title }}</h2>
+
+<table border="1">
+    <tr>
+        <th>Title</th>
+        <td>{{ product.title }}</td>
+    </tr>
+    <tr>
+        <th>Price</th>
+        <td>{{ product.price }}</td>
+    </tr>
+    <tr>
+        <th>Created date</th>
+        <td>{{ product.created_date }}</td>
+    </tr>
+    <tr>
+        <th>Expire date</th>
+        <td>{{ product.expire_date }}</td>
+    </tr>
+    <tr>
+        <th>Description</th>
+        <td>{{ product.desc }}</td>
+    </tr>
+    <tr>
+        <th>Amount</th>
+        <td>{{ product.amount }}</td>
+    </tr>
+</table>
+
+<br>
+
+<button>
+    <a href="{% url 'update' product.id %}">Edit</a>
+</button>
+<button>
+    <a href="{% url 'delete' product.id %}">Delete</a>
+</button>
+
+</body>
+</html>
