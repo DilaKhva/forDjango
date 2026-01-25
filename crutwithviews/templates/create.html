@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create House</title>
+</head>
+<body>
+
+    <h1>🏠 Yangi uy qo‘shish</h1>
+
+    <form method="post">
+        {% csrf_token %}
+
+        <label>📍 Location:</label><br>
+        <input type="text" name="location" required><br><br>
+
+        <label>🛏 Rooms:</label><br>
+        <input type="number" name="rooms" min="1" required><br><br>
+
+        <label>🏢 Floors:</label><br>
+        <input type="number" name="floors" min="1" required><br><br>
+
+        <label>📐 Area (m²):</label><br>
+        <input type="number" name="area" min="1" required><br><br>
+
+        <label>🌳 Has garden:</label>
+        <input type="checkbox" name="has_garden"><br><br>
+
+        <button type="submit">➕ Create</button>
+        <a href="{% url 'index' %}">⬅ Back</a>
+    </form>
+
+</body>
+</html>

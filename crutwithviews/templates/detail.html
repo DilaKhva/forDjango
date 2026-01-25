@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>House detail</title>
+</head>
+<body>
+
+<h1>House Details</h1>
+
+<hr>
+
+<table cellpadding="8">
+    <tr>
+        <td><strong>Location:</strong></td>
+        <td>{{ uy.location }}</td>
+    </tr>
+
+    <tr>
+        <td><strong>Rooms:</strong></td>
+        <td>{{ uy.rooms }}</td>
+    </tr>
+
+    <tr>
+        <td><strong>Floors:</strong></td>
+        <td>{{ uy.floors }}</td>
+    </tr>
+
+    <tr>
+        <td><strong>Area:</strong></td>
+        <td>{{ uy.area }} m²</td>
+    </tr>
+
+    <tr>
+        <td><strong>Garden:</strong></td>
+        <td>
+            {% if uy.has_garden %}
+                Yes 🌿
+            {% else %}
+                No ❌
+            {% endif %}
+        </td>
+    </tr>
+</table>
+
+<br>
+<p><a href="{% url 'update' uy.pk %}">Edit</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="{% url 'delete' uy.pk %}">DEL</a><br><br>
+<a href="{% url 'index' %}">⬅ Back to list</a>
+
+</p>
+</body>
+</html>

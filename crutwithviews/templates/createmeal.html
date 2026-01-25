@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Meal</title>
+</head>
+<body>
+    <h1>Create a New Meal</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <label for="title">Meal Name:</label><br>
+        <input type="text" id="title" name="title" required><br><br>
+
+        <label for="price">Price:</label><br>
+        <input type="number" id="price" name="price" step="0.01" required><br><br>
+
+        <label for="desc">Description:</label><br>
+        <textarea id="desc" name="desc" rows="4" cols="50"></textarea><br><br>
+
+        <label for="calories">Calories:</label><br>
+        <input type="number" id="calories" name="calories"><br><br>
+
+        <label for="is_spicy">Spicy:</label>
+        <input type="checkbox" id="is_spicy" name="is_spicy"><br><br>
+
+        <button type="submit">Create Meal</button>
+    </form>
+
+    <br>
+    <a href="{% url 'indexmeal' %}">Back to Meals</a>
+</body>
+</html>

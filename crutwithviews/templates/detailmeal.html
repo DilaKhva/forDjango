@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ meal.title }} Details</title>
+</head>
+<body>
+    <h1>{{ meal.title }}</h1>
+
+    <p><strong>Price:</strong> {{ meal.price }} so'm</p>
+    <p><strong>Description:</strong> {{ meal.desc }}</p>
+    <p><strong>Calories:</strong> {{ meal.calories }} kcal</p>
+    <p><strong>Spicy:</strong> {% if meal.is_spicy %}Yes{% else %}No{% endif %}</p>
+
+    <br>
+    <a href="{% url 'updatemeal' meal.id %}">Edit Meal</a> |
+    <a href="{% url 'indexmeal' %}">Back to Meals</a>
+    <br><br>
+    <a href="{% url 'deletemeal' meal.id %}">delete</a>
+</body>
+</html>

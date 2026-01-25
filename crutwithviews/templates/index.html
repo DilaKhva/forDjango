@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Houses</title>
+</head>
+<body>
+
+<h1>Houses</h1>
+
+<hr>
+
+{% if houses %}
+    <ul>
+        {% for house in houses %}
+            <li>
+                <a href="{% url 'detail' house.id %}">in
+                {{ house.location }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No houses available.</p>
+{% endif %}
+<button>
+    <a href="{% url 'create' %}">
+    Add house
+    </a>
+</button>
+
+</body>
+</html>

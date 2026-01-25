@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% if meals %}
+        <ol>
+            {% for meal in meals %}
+                <li><a href="{% url 'detailmeal' meal.id %}">{{ meal.title }}</a></li>
+            {% endfor %}
+        </ol>
+    {% else %}
+        <p>no meals yet!</p>
+    {% endif %}
+    <br><br>
+<p><a href="{% url 'createmeal' %}">
+    - Add meal -  </a>
+</p>
+</body>
+</html>

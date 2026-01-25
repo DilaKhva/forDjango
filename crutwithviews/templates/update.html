@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update House</title>
+</head>
+<body>
+    <h1>Update House</h1>
+    <form method="POST">
+        {% csrf_token %}
+
+        <label>Location:</label><br>
+        <input type="text" name="location" value="{{ uy.location }}" required><br><br>
+
+        <label>Rooms:</label><br>
+        <input type="number" name="rooms" value="{{ uy.rooms }}" min="1" required><br><br>
+
+        <label>Floors:</label><br>
+        <input type="number" name="floors" value="{{ uy.floors }}" min="1" required><br><br>
+
+        <label>Area (m²):</label><br>
+        <input type="number" name="area" value="{{ uy.area }}" min="1" required><br><br>
+
+        <label>
+            <input type="checkbox" name="has_garden" {% if uy.has_garden %}checked{% endif %}>
+            Has Garden
+        </label><br><br>
+
+        <button type="submit">Update</button>
+        <a href="{% url 'index' %}">Cancel</a>
+    </form>
+</body>
+</html>
