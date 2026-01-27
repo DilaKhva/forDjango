@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>{{ country.title }}</h2>
+<p>Capital: <b>{{ country.capital }}</b></p>
+<p>Area: <b>{{ country.area }}</b> kv km</p>
+<p>Independence day: <b>{{ country.independence_day_year }}</b></p>
+<p>Language: <b>{{ country.language }}</b></p>
+
+<p><button><a href="{% url 'update' country.id %}">Edit</a></button>   <button><a href="{% url 'delete' country.id %}">Del</a></button></p>
+
+</body>
+</html>

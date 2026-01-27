@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Countries <button><a href="{% url 'create' %}">+</a></button></h2>
+<ol>
+{% if countries %}
+{% for country in countries %}
+    <li>
+        <a href="{% url 'detail' country.id %}">
+        {{country.title}}
+        </a>
+    </li>
+{% endfor %}
+    {% else %}
+    <p>no countries</p>
+{% endif %}
+</ol>
+</body>
+</html>
