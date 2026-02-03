@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% if request.user.is_authenticated %}
+<div style="color:green"><b>Successfully logged in! <button><a href="{% url 'logout' %}">Log Out</a></button> </b></div>
+{% endif %}
+{% if users %}
+<ol> <h2>USERNAMES: </h2>
+{% for user in users %}
+    <li>{{ user.username }}</li>
+
+{% endfor %}</ol>
+{% else %}
+<p>no users!</p>
+{% endif %}
+<br><br>
+<button><a href="{% url 'register' %}">Sign Up</a></button>  <button><a href="{% url 'login' %}">Sign in</a></button>
+</body>
+</html>
