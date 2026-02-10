@@ -1,0 +1,11 @@
+# Django Framework
+Django>=4.2,<5.0
+
+# Database (PostgreSQL support - optional)
+psycopg2-binary>=2.9.0
+
+# Image Processing (for product images)
+Pillow>=10.0.0
+
+# Email Backend (optional - uncomment if using SendGrid)
+# sendgrid>=6.9.0

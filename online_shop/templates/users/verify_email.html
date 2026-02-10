@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Verify Email</title>
+<style>
+body { font-family: Arial; background: #f4f6f8; display: flex; justify-content: center; align-items: center; height: 100vh; }
+.verify-box { background: white; padding: 30px; width: 400px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); text-align: center; }
+.verify-box input { width: 100%; padding: 10px; margin-bottom: 12px; border: 1px solid #ccc; border-radius: 4px; }
+.verify-box button { width: 100%; padding: 10px; background: #4caf50; color: white; border: none; border-radius: 4px; cursor: pointer; }
+.verify-box button:hover { background: #43a047; }
+.error { color: red; margin-bottom: 10px; font-weight: bold; }
+</style>
+</head>
+<body>
+<div class="verify-box">
+    <h2>Verify Your Email</h2>
+
+    {% if error %}
+        <div class="error">{{ error }}</div>
+    {% endif %}
+
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" name="code" placeholder="Enter verification code" required>
+        <button type="submit">Verify</button>
+    </form>
+</div>
+</body>
+</html>

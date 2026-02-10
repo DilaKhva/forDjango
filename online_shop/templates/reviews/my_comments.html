@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container" style="max-width:800px; margin:20px auto;">
+    <h2>My Comments</h2>
+
+    {% if comments %}
+        {% for comment in comments %}
+            <div style="border:1px solid #ccc; padding:15px; margin-bottom:10px; border-radius:5px;">
+                <strong>Product:</strong> {{ comment.product.name }}<br>
+                <strong>Rating:</strong> {{ comment.rating }} / 5<br>
+                <strong>Comment:</strong>
+                <p style="white-space: pre-wrap;">{{ comment.text }}</p>
+                <small>Created at: {{ comment.created_at|date:"Y-m-d H:i" }}</small>
+                <div style="margin-top:10px;">
+                    <a href="{% url 'update_comment' comment.id %}" style="padding:5px 10px; background:#2196F3; color:white; text-decoration:none; border-radius:3px;">Edit</a>
+                    <a href="{% url 'delete_comment' comment.id %}" style="padding:5px 10px; background:#f44336; color:white; text-decoration:none; border-radius:3px; margin-left:5px;">Delete</a>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>You have not added any comments yet.</p>
+    {% endif %}
+</div>
+{% endblock %}

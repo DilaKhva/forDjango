@@ -1,0 +1,18 @@
+{% load static %}
+
+{% block content %}
+<div class="container" style="max-width:600px; margin:20px auto;">
+    <h2>Edit Your Comment for "{{ comment.product.name }}"</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+        <label for="text">Comment</label>
+        <textarea name="text" id="text" rows="5" style="width:100%; padding:8px; margin-bottom:10px;" required>{{ comment.text }}</textarea>
+
+        <button type="submit" style="padding:10px 20px; background:#2196F3; color:white; border:none; cursor:pointer;">
+            Update
+        </button>
+        <a href="{% url 'product_detail' comment.product.id %}" style="padding:10px 20px; background:#f44336; color:white; text-decoration:none; margin-left:10px;">Cancel</a>
+    </form>
+</div>
+{% endblock %}

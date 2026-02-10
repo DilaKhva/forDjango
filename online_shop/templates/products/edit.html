@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Product</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: #4caf50;
+            color: white;
+            padding: 15px 30px;
+            text-align: center;
+        }
+
+        nav {
+            background: #333;
+            padding: 15px 0;
+        }
+
+        nav .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .left-links,
+        nav .right-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: #a5d6a7;
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+        }
+
+        nav a:hover {
+            background: #4caf50;
+            color: black;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 500px;
+            margin: 40px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-top: 12px;
+            font-weight: bold;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        .btn {
+            margin-top: 20px;
+            width: 100%;
+            padding: 10px;
+            background: #2196F3;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background: #1976D2;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Edit Product</h1>
+</header>
+
+<nav>
+    <div class="container">
+        <div class="left-links">
+            <a href="{% url 'products_list' %}">Home</a>
+        </div>
+        <div class="right-links">
+            <a href="{% url 'profile' %}">Profile</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <h2>{{ product.name }}</h2>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <label>Name</label>
+        <input type="text" name="name" value="{{ product.name }}" required>
+
+        <label>Price</label>
+        <input type="number" name="price" value="{{ product.price }}" step="0.01" required>
+
+        <label>Stock</label>
+        <input type="number" name="stock" value="{{ product.stock }}" required>
+
+        <label>Description</label>
+        <textarea name="description" rows="4">{{ product.description }}</textarea>
+
+        <label>Image</label>
+        <input type="file" name="image">
+
+        <button type="submit" class="btn">Save Changes</button>
+    </form>
+</div>
+
+</body>
+</html>
